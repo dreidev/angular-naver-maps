@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="ngNaverMaps">
+<head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+  <link href="app.less" type="text/css" rel="stylesheet/less">
+</head>
+<body>
+
+  <!-- Livereload script for development only (stripped during dist build) -->
+  <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
+
+  <!-- JS from Bower Components -->
+  <script src="bower_components/less.js/dist/less.js" data-concat="false"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/lodash/dist/lodash.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/geolocator/src/geolocator.js"></script>
+  <!-- Add New Bower Component JS Above -->
+  
+  <script src="http://openapi.map.naver.com/openapi/v2/maps.js?clientId=NJ1eKwPxkUaUitWClOhG"></script>
+
+  <!-- Main App JS -->
+  <script src="NaverMaps/NaverMaps.js"></script>
+  <script src="app.js"></script>
+  <script src="partial/home/home.js"></script>
+  <script src="directive/navigation/navigation.js"></script>
+  <script src="service/navigator-geolocation.js"></script>
+  <script src="service/geolocator.js"></script>
+  <script src="service/NgNaverMap.js"></script>
+  <script src="directive/ng-naver-map/ng-naver-map.js"></script>
+  <script src="directive/ng-naver-map-marker/ng-naver-map-marker.js"></script>
+  <!-- Add New Component JS Above -->
+
+  <div>
+    <div id="content" class="container">
+      <div class="row">
+        <div ui-view>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

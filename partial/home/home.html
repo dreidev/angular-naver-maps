@@ -1,0 +1,30 @@
+<div class="col-md-12" ng-controller="HomeCtrl">
+    <navigation></navigation>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+          Example
+        </h4>
+        </div>
+        <div class="panel-body">
+            <p>
+                Bellow is an example of using <code>ng-naver-map</code> directive, Naver maps only works in korea so current location will render a gray map if you're outside of korea. you can simulate current location from the developer tools. 37.5675451, 126.9773356 is the lat and lng of Soul.
+            </p>
+            <p>
+                The code used for the map bellow is
+                <pre>
+                <code>
+<<b></b>ng-naver-map  zoom="11" center="'current-location'" zoom-control="true" zoom-control-options='{style:"small", position:{right: 10,left: 10}}' size="['width', 400]" enable-wheel-zoom="false" on-center-changed="centerChanged(coord)">
+
+    <<b></b>ng-naver-map-marker ng-repeat="item in items" model="item" position='{{getPos(item.venue)}}' on-click="log(model)" title="item.venue.name"><<b></b>/ng-naver-map-marker>
+    
+<<b></b>/ng-naver-map>
+</code>
+            </pre>
+            </p>
+        </div>
+    </div>
+    <ng-naver-map zoom="11" center="'current-location'" zoom-control="true" zoom-control-options='{style:"small", position:{right: 10,left: 10}}' size="['width', 400]" enable-wheel-zoom="false" on-center-changed="centerChanged(coord)">
+        <ng-naver-map-marker ng-repeat="item in items" model="item" position='{{getPos(item.venue)}}' on-click="log(model)" title="item.venue.name"></ng-naver-map-marker>
+    </ng-naver-map>
+</div>
