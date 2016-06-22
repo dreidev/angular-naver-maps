@@ -13,13 +13,7 @@
             <p>
                 The code used for the map bellow is
                 <pre>
-                <code>
-<<b></b>ng-naver-map  zoom="11" center="'current-location'" zoom-control="true" zoom-control-options='{style:"small", position:{right: 10,left: 10}}' size="['width', 400]" enable-wheel-zoom="false" on-center-changed="centerChanged(coord)">
-
-    <<b></b>ng-naver-map-marker ng-repeat="item in items" model="item" position='{{getPos(item.venue)}}' on-click="log(model)" title="item.venue.name"><<b></b>/ng-naver-map-marker>
-    
-<<b></b>/ng-naver-map>
-</code>
+<code ng-bind="snippet"></code>
             </pre>
             </p>
         </div>

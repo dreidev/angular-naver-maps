@@ -83,7 +83,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       main: {
         options: {
-            module: pkg.name,
+            module: 'NaverMaps',
             htmlmin:'<%= htmlmin.main.options %>'
         },
         src: [createFolderGlobs('*.html'),'!index.html','!_SpecRunner.html'],
@@ -200,7 +200,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin','clean:after']);
+  grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin']);
   grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
 
