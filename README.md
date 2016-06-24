@@ -8,6 +8,39 @@ You can see a [live demo here](https://dreidev.github.io/angular-naver-maps)
 
 The full Naver Map API is still unsupported, currently only the following features are supported (which should cover most use cases).
 
+##How to use
+
+Create a Naver map API key https://developers.naver.com/register
+
+include 
+
+```
+<script src="https://openapi.map.naver.com/openapi/v2/maps.js?clientId=YOURKEY"></script>
+```
+
+load the NaverMap module before your app
+
+```
+<script src="NaverMaps/NaverMaps.js"></script>
+<script src="NaverMaps/service/navigator-geolocation.js"></script>
+<script src="NaverMaps/service/geolocator.js"></script>
+<script src="NaverMaps/service/NgNaverMap.js"></script>
+<script src="NaverMaps/directive/ng-naver-map/ng-naver-map.js"></script>
+<script src="NaverMaps/directive/ng-naver-map-marker/ng-naver-map-marker.js"></script>
+.
+.
+.
+<script src="app.js"></script>
+```
+
+Add the module to your angular app
+
+```
+angular.module('App', ['NaverMaps']);
+```
+
+Use available directives (this is taken from the demo)
+
 ```
 <ng-naver-map
   zoom="11"
@@ -29,6 +62,7 @@ The full Naver Map API is still unsupported, currently only the following featur
 </ng-naver-map>
 ```
 
+##Documentation
 
 For the `<ng-naver-map>` directive
 
@@ -60,6 +94,10 @@ It is possible to place a marker on the map using `<ng-naver-map-marker>` direct
 - **position** Array with latitudinal and longitudinal values
 - **model** Object to pass on click
 - **on-click** function to call on click, passes model as an argument
+
+---
+
+# For additional feature requests submit an issue
 
 
 
