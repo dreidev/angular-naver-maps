@@ -14,13 +14,13 @@ Create a Naver map API key https://developers.naver.com/register
 
 include 
 
-```
+```html
 <script src="https://openapi.map.naver.com/openapi/v2/maps.js?clientId=YOURKEY"></script>
 ```
 
 load the NaverMap module before your app
 
-```
+```html
 <script src="NaverMaps/NaverMaps.js"></script>
 <script src="NaverMaps/service/navigator-geolocation.js"></script>
 <script src="NaverMaps/service/geolocator.js"></script>
@@ -35,13 +35,13 @@ load the NaverMap module before your app
 
 Add the module to your angular app
 
-```
+```js
 angular.module('App', ['NaverMaps']);
 ```
 
 Use available directives (this is taken from the demo)
 
-```
+```html
 <ng-naver-map
   zoom="11"
   center="'current-location'"
