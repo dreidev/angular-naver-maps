@@ -100,6 +100,10 @@ module.exports = function (grunt) {
           //{src: ['bower_components/select2/*.png','bower_components/select2/*.gif'], dest:'dist/css/',flatten:true,expand:true},
           //{src: ['bower_components/angular-mocks/angular-mocks.js'], dest: 'dist/'}
         ]
+      },
+      build:{
+        src: ['dist/naver-maps.min.js'], 
+        dest: 'naver-maps.min.js'
       }
     },
     dom_munger:{

@@ -1,3 +1,3 @@
-angular.module('NaverMaps', []);
+window.angular.module('NaverMaps', []);
 
 
