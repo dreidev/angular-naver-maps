@@ -1,7 +1,6 @@
 {
     "name": "angular-naver-maps",
     "description": "A simple angular directive for inegrating Naver Maps",
-    "version": "0.3.1",
     "main": "angular-naver-maps.js",
     "keywords": [
         "naver",
