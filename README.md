@@ -24,25 +24,10 @@ get module
 bower install angular-naver-maps
 ```
 
-then
+then add it before you app.js
 
 ```
-<script src="bower_components/angular-naver-maps/naver-maps.min.js"></script>
-```
-
-or clone this repository and load the NaverMap module before your app.
-
-```html
-<script src="NaverMaps/NaverMaps.js"></script>
-<script src="NaverMaps/service/navigator-geolocation.js"></script>
-<script src="NaverMaps/service/geolocator.js"></script>
-<script src="NaverMaps/service/NgNaverMap.js"></script>
-<script src="NaverMaps/directive/ng-naver-map/ng-naver-map.js"></script>
-<script src="NaverMaps/directive/ng-naver-map-marker/ng-naver-map-marker.js"></script>
-.
-.
-.
-<script src="app.js"></script>
+<script src="bower_components/angular-naver-maps/angular-naver-maps.js"></script>
 ```
 
 Add the module to your angular app
