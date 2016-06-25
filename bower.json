@@ -3,8 +3,19 @@
     "description": "A simple angular directive for inegrating Naver Maps",
     "version": "0.3.0",
     "main": "naver-maps.min.js",
-    "keywords": ["naver", "maps", "map","angular", "angular-naver-maps", "korean", "korea", "ng-naver-map"],
-    "authors": ["Amr Draz <amrdraz@dreidev.com> (dreidev.com)"],
+    "keywords": [
+        "naver",
+        "maps",
+        "map",
+        "angular",
+        "angular-naver-maps",
+        "korean",
+        "korea",
+        "ng-naver-map"
+    ],
+    "authors": [
+        "Amr Draz <amrdraz@dreidev.com> (dreidev.com)"
+    ],
     "repository": {
         "type": "git",
         "url": "git@github.com:dreidev/angular-naver-maps.git"
@@ -17,7 +28,7 @@
         "partial",
         "directive",
         "app.js",
-        "package.json"
+        "package.json",
         "index.html"
     ],
     "devDependencies": {
