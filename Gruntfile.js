@@ -65,7 +65,7 @@ module.exports = function (grunt) {
     },
     clean: {
       before:{
-        src:['dist','temp']
+        src:['dist','temp', 'naver-maps.min.js']
       },
       after: {
         src:['temp']
@@ -216,7 +216,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin', 'clean:after']);
+  grunt.registerTask('build',['clean:before','jshint','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin', 'clean:after']);
   grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
 
