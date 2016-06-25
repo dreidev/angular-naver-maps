@@ -107,7 +107,8 @@ module.exports = function (grunt) {
         options: {
           read:[
             {selector:'script[data-module="true"]',attribute:'src',writeto:'modulejs'},
-            {selector:'script[data-concat!="false"]',attribute:'src',writeto:'appjs'},
+            {selector:'script[data-app="true"]',attribute:'src',writeto:'appjs'},
+            {selector:'script[data-concat!="false"]',attribute:'src',writeto:'vendorjs'},
             {selector:'link[rel="stylesheet"][data-concat!="false"]',attribute:'href',writeto:'appcss'}
           ]
         },
@@ -117,6 +118,7 @@ module.exports = function (grunt) {
         options: {
           remove: ['script[data-remove!="false"]','link[data-remove!="false"]'],
           append: [
+            {selector:'body',html:'<script src="vendor.min.js"></script>'},
             {selector:'body',html:'<script src="naver-maps.min.js"></script>'},
             {selector:'body',html:'<script src="app.full.min.js"></script>'},
             {selector:'head',html:'<link rel="stylesheet" href="app.full.min.css">'}
@@ -145,9 +147,13 @@ module.exports = function (grunt) {
       }
     },
     uglify: {
-      main: {
+      app: {
         src: 'temp/app.full.js',
         dest:'dist/app.full.min.js'
+      },
+      vendor: {
+        src: '<%= dom_munger.data.vendorjs %>',
+        dest:'dist/vendor.min.js'
       },
       module: {
         src: '<%= dom_munger.data.modulejs %>',
