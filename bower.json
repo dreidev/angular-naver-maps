@@ -28,9 +28,10 @@
         "dist",
         "bower_components",
         "partial",
-        "!NaverMaps/directive",
-        "./directive",
+        "NaverMaps",
+        "directive",
         "app.js",
+        "Gruntfile.js",
         "package.json",
         "index.html"
     ],
