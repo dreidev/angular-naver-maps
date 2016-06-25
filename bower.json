@@ -35,5 +35,7 @@
         "less.js": "~2.6",
         "font-awesome": "~4.5"
     },
-    "moduleType":"globals"
+    "moduleType": [
+        "globals"
+    ]
 }
