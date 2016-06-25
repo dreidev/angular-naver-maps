@@ -40,7 +40,7 @@ module.exports = function (grunt) {
     connect: {
       main: {
         options: {
-          port: 9001
+          port: 8080
         }
       }
     },
@@ -65,7 +65,7 @@ module.exports = function (grunt) {
     },
     clean: {
       before:{
-        src:['dist','temp', 'naver-maps.min.js']
+        src:['dist','temp', 'angular-naver-maps*.js']
       },
       after: {
         src:['temp']
@@ -102,8 +102,10 @@ module.exports = function (grunt) {
         ]
       },
       build:{
-        src: ['dist/naver-maps.min.js'], 
-        dest: 'naver-maps.min.js'
+        files: [
+          {dest:'angular-naver-maps.min.js', src:'dist/angular-naver-maps.min.js'}, 
+          {dest:'angular-naver-maps.js', src:'<%= dom_munger.data.modulejs %>'}
+        ]
       }
     },
     dom_munger:{
@@ -123,7 +125,7 @@ module.exports = function (grunt) {
           remove: ['script[data-remove!="false"]','link[data-remove!="false"]'],
           append: [
             {selector:'body',html:'<script src="vendor.min.js"></script>'},
-            {selector:'body',html:'<script src="naver-maps.min.js"></script>'},
+            {selector:'body',html:'<script src="angular-naver-maps.min.js"></script>'},
             {selector:'body',html:'<script src="app.full.min.js"></script>'},
             {selector:'head',html:'<link rel="stylesheet" href="app.full.min.css">'}
           ]
@@ -161,7 +163,7 @@ module.exports = function (grunt) {
       },
       module: {
         src: '<%= dom_munger.data.modulejs %>',
-        dest:'dist/naver-maps.min.js'
+        dest:'dist/angular-naver-maps.min.js'
       },
     },
     htmlmin: {

@@ -18,7 +18,19 @@ include
 <script src="https://openapi.map.naver.com/openapi/v2/maps.js?clientId=YOURKEY"></script>
 ```
 
-load the NaverMap module before your app
+get module 
+
+```
+bower install angular-naver-maps
+```
+
+then
+
+```
+<script src="bower_components/angular-naver-maps/naver-maps.min.js"></script>
+```
+
+or clone this repository and load the NaverMap module before your app.
 
 ```html
 <script src="NaverMaps/NaverMaps.js"></script>

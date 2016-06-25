@@ -1,6 +1,4 @@
 (function() {
-    var Naver = window.nhn.api.map;
-
     angular.module('NaverMaps').directive('ngNaverMap', function() {
         return {
             restrict: 'E',

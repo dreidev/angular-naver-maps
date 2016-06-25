@@ -1,5 +1,12 @@
 angular.module('NaverMaps').factory('NgNaverMap', ['$q', function($q) {
-    var Naver = window.nhn.api.map;
+    var Naver;
+    try {
+        Naver = window.nhn.api.map;
+    } catch (e){
+        console.error("Naver Map API could not load, this may be due to bad Internet connection or API key being restricted to another domain");
+        console.error(e);
+        Naver = {};
+    }
     var mapControllers = {};
     var NgNaverMap = {
         Naver: Naver,
