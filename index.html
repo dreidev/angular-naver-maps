@@ -7,6 +7,14 @@
   <link href="app.less" type="text/css" rel="stylesheet/less">
 </head>
 <body>
+  <div>
+    <div id="content" class="container">
+      <div class="row">
+        <div ui-view>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Livereload script for development only (stripped during dist build) -->
   <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
@@ -25,28 +33,20 @@
   
   <!-- Add New Bower Component JS Above -->
   
-  <script src="https://openapi.map.naver.com/openapi/v2/maps.js?clientId=HllnoOdvOe7HcAo6kVMe"></script>
+  <script data-concat="false" data-remove="false" src="https://openapi.map.naver.com/openapi/v2/maps.js?clientId=HllnoOdvOe7HcAo6kVMe"></script>
 
+  <!-- Naver Map Module JS -->
+  <script data-concat="false" data-module="true" src="NaverMaps/NaverMaps.js"></script>
+  <script data-concat="false" data-module="true" src="NaverMaps/service/navigator-geolocation.js"></script>
+  <script data-concat="false" data-module="true" src="NaverMaps/service/geolocator.js"></script>
+  <script data-concat="false" data-module="true" src="NaverMaps/service/NgNaverMap.js"></script>
+  <script data-concat="false" data-module="true" src="NaverMaps/directive/ng-naver-map/ng-naver-map.js"></script>
+  <script data-concat="false" data-module="true" src="NaverMaps/directive/ng-naver-map-marker/ng-naver-map-marker.js"></script>
+  
   <!-- Main App JS -->
-  <script src="NaverMaps/NaverMaps.js"></script>
   <script src="app.js"></script>
   <script src="partial/home/home.js"></script>
   <script src="directive/navigation/navigation.js"></script>
-  <script src="NaverMaps/service/navigator-geolocation.js"></script>
-  <script src="NaverMaps/service/geolocator.js"></script>
-  <script src="NaverMaps/service/NgNaverMap.js"></script>
-  <script src="NaverMaps/directive/ng-naver-map/ng-naver-map.js"></script>
-  <script src="NaverMaps/directive/ng-naver-map-marker/ng-naver-map-marker.js"></script>
   <!-- Add New Component JS Above -->
-
-  <div>
-    <div id="content" class="container">
-      <div class="row">
-        <div ui-view>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </body>
 </html>

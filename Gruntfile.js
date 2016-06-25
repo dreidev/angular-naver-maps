@@ -106,6 +106,7 @@ module.exports = function (grunt) {
       read: {
         options: {
           read:[
+            {selector:'script[data-module="true"]',attribute:'src',writeto:'modulejs'},
             {selector:'script[data-concat!="false"]',attribute:'src',writeto:'appjs'},
             {selector:'link[rel="stylesheet"][data-concat!="false"]',attribute:'href',writeto:'appcss'}
           ]
@@ -116,6 +117,7 @@ module.exports = function (grunt) {
         options: {
           remove: ['script[data-remove!="false"]','link[data-remove!="false"]'],
           append: [
+            {selector:'body',html:'<script src="naver-maps.min.js"></script>'},
             {selector:'body',html:'<script src="app.full.min.js"></script>'},
             {selector:'head',html:'<link rel="stylesheet" href="app.full.min.css">'}
           ]
@@ -146,7 +148,11 @@ module.exports = function (grunt) {
       main: {
         src: 'temp/app.full.js',
         dest:'dist/app.full.min.js'
-      }
+      },
+      module: {
+        src: '<%= dom_munger.data.modulejs %>',
+        dest:'dist/naver-maps.min.js'
+      },
     },
     htmlmin: {
       main: {
@@ -200,7 +206,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin']);
+  grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin', 'clean:after']);
   grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
 
