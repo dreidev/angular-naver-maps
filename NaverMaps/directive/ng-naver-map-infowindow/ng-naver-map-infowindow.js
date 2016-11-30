@@ -45,7 +45,8 @@
                  oInfoWnd.attach('click', function() { scope.onClick({ model: scope.model }); });
 
                  transclude(scope.$parent, function(clone, scope) {
-                   oInfoWnd.setContent(clone.text());
+                  //  oInfoWnd.setContent(clone.html());
+                  console.log(clone.data());
                   });
 
               });
