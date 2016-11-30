@@ -19,13 +19,8 @@ angular.module('ngNaverMaps').controller('HomeCtrl', ['$scope', '$sce','NgNaverM
     $scope.getPos = function(venue) {
         return [venue.lat, venue.lng];
     };
-
-    $scope.shownInfoCard;
-    $scope.show = function(item){
-      return $scope.shownInfoCard === item;
-    }
+    
     $scope.toggleInfoWindow = function(index) {
-        $scope.$emit('toggleInfoWindow', index);
         $scope.$broadcast('toggleInfoWindow', index);
     };
 
