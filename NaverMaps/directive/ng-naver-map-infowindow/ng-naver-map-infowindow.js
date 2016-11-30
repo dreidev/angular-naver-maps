@@ -2,8 +2,6 @@
     angular.module('NaverMaps').directive('ngNaverMapInfowindow', ['NgNaverMap', function(NgNaverMap) {
         return {
             scope: {
-              title: '=?',
-              data: '=?',
               model: '=?',
               position: '@?',
               onClick: '&?',
