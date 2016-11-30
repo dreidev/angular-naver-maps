@@ -8,7 +8,7 @@
         </div>
         <div class="panel-body">
             <p>
-                Bellow is an example of using <code>ng-naver-map</code> directive, Naver maps only works in korea so current location will render a gray map if you're outside of korea. 
+                Bellow is an example of using <code>ng-naver-map</code> directive, Naver maps only works in korea so current location will render a gray map if you're outside of korea.
             </p>
             <p>
                 The code used for the map bellow is
@@ -19,6 +19,11 @@
         </div>
     </div>
     <ng-naver-map zoom="11" center="[37.5675451, 126.9773356]" zoom-control="true" zoom-control-options='{style:"small", position:{right: 10,left: 10}}' size="['width', 400]" enable-wheel-zoom="false" on-center-changed="centerChanged(coord)">
-        <ng-naver-map-marker ng-repeat="item in items" model="item" position='{{getPos(item.venue)}}' on-click="log(model)" title="item.venue.name"></ng-naver-map-marker>
+        <ng-naver-map-marker ng-repeat="item in items" model="item" position='{{getPos(item.venue)}}' on-click="toggleInfoWindow($index)" title="item.venue.name"></ng-naver-map-marker>
+        <ng-naver-map-infowindow ng-repeat="item in items" index="$index" model="item" position='{{getPos(item.venue)}}' on-click="log(model)" title="item.venue.name" show="show(item)">
+          <div class="">
+
+          </div>
+        </ng-naver-map-infowindow>
     </ng-naver-map>
 </div>

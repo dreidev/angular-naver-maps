@@ -2,7 +2,7 @@ angular.module('ngNaverMaps').controller('HomeCtrl', ['$scope', '$sce','NgNaverM
 
     $scope.items = [
         { name: 'Happy Time', 'venue': { name: 'place 1', lat: 37.5676451, lng: 126.9773356 } },
-        { name: 'Happy Time', 'venue': { name: 'place 1', lat: 37.5676451, lng: 126.9783356 } },
+        { name: 'Happy Place', 'venue': { name: 'place 2', lat: 37.5676451, lng: 126.9783356 } },
     ];
 
     $scope.snippet = '<ng-naver-map  zoom="11" center="[37.5675451, 126.9773356]" zoom-control="true" zoom-control-options=\'{style:"small", position:{right: 10,left: 10}}\' size="[\'width\', 400]" enable-wheel-zoom="false" on-center-changed="centerChanged(coord)">\n' +
@@ -13,14 +13,19 @@ angular.module('ngNaverMaps').controller('HomeCtrl', ['$scope', '$sce','NgNaverM
         return $sce.trustAsHtml($scope.snippet);
     };
 
-    $scope.log = function(item) {
-        console.log(item);
-    };
-
     $scope.centerChanged = function(coord) {};
 
     $scope.getPos = function(venue) {
         return [venue.lat, venue.lng];
+    };
+
+    $scope.shownInfoCard;
+    $scope.show = function(item){
+      return $scope.shownInfoCard === item;
+    }
+    $scope.toggleInfoWindow = function(index) {
+        $scope.$emit('toggleInfoWindow', index);
+        $scope.$broadcast('toggleInfoWindow', index);
     };
 
 }]);
