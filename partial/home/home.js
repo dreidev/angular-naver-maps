@@ -21,7 +21,7 @@ angular.module('ngNaverMaps').controller('HomeCtrl', ['$scope', '$sce','NgNaverM
     };
 
     $scope.infoWindoSnippet = [
-      '<div class="clearfix">',
+      '<div class="map-info-window">',
       '<div class="iw_inner" style="color:black;background-color:white;">',
         '   <h3>서울특별시청</h3>',
         '   <p style="margin:0"> Lorem ipsum silor sit amet Lorem ipsum silor sit amet',
