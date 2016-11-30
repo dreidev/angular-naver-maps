@@ -10,7 +10,8 @@
             },
             requires: '^?ngNaverMap',
             restrict: 'E',
-            link: function(scope, element, attrs, ngNaverMap) {
+            transclude: true,
+            link: function(scope, element, attrs, ngNaverMap, transclude) {
               NgNaverMap.getMap().then(function(oMap) {
                   var Naver = NgNaverMap.Naver;
 
@@ -42,6 +43,10 @@
                   });
 
                  oInfoWnd.attach('click', function() { scope.onClick({ model: scope.model }); });
+
+                 transclude(scope.$parent, function(clone, scope) {
+                   oInfoWnd.setContent(clone.text());
+                  });
 
               });
             }
