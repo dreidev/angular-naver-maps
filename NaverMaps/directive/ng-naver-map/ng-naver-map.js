@@ -17,7 +17,8 @@
                 'size': '=?', // [width, height]
                 'zoomControl': '=?',
                 'zoomControlOptions': '=?',
-                'onCenterChanged': '&?'
+                'onCenterChanged': '&?',
+                'onClick': '&?'
             },
             controller: ['$scope', '$element', '$attrs', '$window', 'NgNaverMap', 'geolocator', function(scope, element, attrs, window, NgNaverMap, geolocator) {
                 var Naver = NgNaverMap.Naver;
@@ -36,6 +37,11 @@
                 } else {
                     NgNaverMap.initMap(scope, element, vm);
                 }
+                NgNaverMap.getMap().then(function(oMap) {
+                  oMap.attach('click', function() {
+                      scope.onClick();
+                  });
+                });
             }]
         };
     });
