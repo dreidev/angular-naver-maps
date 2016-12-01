@@ -33,6 +33,12 @@ angular.module('ngNaverMaps').controller('HomeCtrl', ['$scope', '$sce','NgNaverM
         return [venue.lat, venue.lng];
     };
 
+    $scope.mapOnClick = function () {
+      console.log("Map clicked");
+    };
+
+    // Info Window configurations
+
     var activeIndex = -1;
 
     $scope.toggleInfoWindow = function(index) {
