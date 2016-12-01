@@ -12,13 +12,13 @@ The full Naver Map API is still unsupported, currently only the following featur
 
 Create a Naver map API key https://developers.naver.com/register
 
-include 
+include
 
 ```html
 <script src="https://openapi.map.naver.com/openapi/v2/maps.js?clientId=YOURKEY"></script>
 ```
 
-get module 
+get module
 
 ```
 bower install angular-naver-maps
@@ -47,7 +47,7 @@ Use available directives (this is taken from the demo)
   size="['width', 400]"
   enable-wheel-zoom="false"
   on-center-changed="centerChanged(coord)">
-  
+
     <ng-naver-map-marker
         ng-repeat="item in items"
         model="item"
@@ -55,7 +55,7 @@ Use available directives (this is taken from the demo)
         on-click="log(model)"
         title="item.name">
     </ng-naver-map-marker>
-    
+
 </ng-naver-map>
 ```
 
@@ -94,7 +94,15 @@ It is possible to place a marker on the map using `<ng-naver-map-marker>` direct
 
 ---
 
+
+It is possible to place an information window on the map using `<ng-naver-map-infowindow>` directive (uses transclusion)
+
+- **index** Integer to identify the window for future control
+- **position** Array with latitudinal and longitudinal values
+- **model** Object to pass on click
+- **on-click** function to call on click, passes model as an argument
+To add HTML to the info window, simply transclude your HTML in the directive
+
+
+---
 # For additional feature requests submit an issue
-
-
-
