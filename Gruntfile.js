@@ -103,7 +103,7 @@ module.exports = function (grunt) {
       },
       build:{
         files: [
-          {dest:'angular-naver-maps.min.js', src:'dist/angular-naver-maps.min.js'}, 
+          {dest:'angular-naver-maps.min.js', src:'dist/angular-naver-maps.min.js'},
           {dest:'angular-naver-maps.js', src:'<%= dom_munger.data.modulejs %>'}
         ]
       }
@@ -182,7 +182,7 @@ module.exports = function (grunt) {
         }
       }
     },
-    //Imagemin has issues on Windows.  
+    //Imagemin has issues on Windows.
     //To enable imagemin:
     // - "npm install grunt-contrib-imagemin"
     // - Comment in this section
@@ -219,7 +219,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('build',['clean:before','jshint','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin', 'clean:after']);
-  grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
+  grunt.registerTask('serve', ['dom_munger:read','connect', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
 
   grunt.event.on('watch', function(action, filepath) {
