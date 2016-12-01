@@ -2,7 +2,6 @@
     angular.module('NaverMaps').directive('ngNaverMapInfowindow', ['NgNaverMap', function(NgNaverMap) {
         return {
             scope: {
-              snippet: '=',
               index : '=',
               model: '=?',
               position: '@?',
@@ -45,10 +44,15 @@
                  oInfoWnd.attach('click', function() { scope.onClick({ model: scope.model }); });
 
                  transclude(scope.$parent, function(clone, scope) {
-                  //  oInfoWnd.setContent(clone.html());
-                  console.log(clone.data());
+                   var htmlWrapper = document.createElement('div');
+                   for (var i = 0; i < clone.length; i++) {
+                     if(clone[i].nodeType === 1){
+                      htmlWrapper.appendChild(clone[i]);
+                     }
+                   }
+                  htmlWrapper.className = "ng-map-infowindow";
+                  oInfoWnd.setContent(htmlWrapper);
                   });
-
               });
             }
         };
