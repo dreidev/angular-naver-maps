@@ -32,12 +32,18 @@
                                 scope.visible = !scope.visible;
                                 oInfoWnd.setVisible(scope.visible);
                             }
-                            console.log('on toggleInfoWindow');
                         });
 
-                        scope.$on('hideAllInfoWindows', function(event) {
-                            oInfoWnd.setVisible(false);
+                        scope.$on('closeInfoWindow', function(event, index) {
+                            if (index === scope.index) {
+                                scope.visible = false;
+                                oInfoWnd.setVisible(false);
+                            }
                         });
+
+                        // scope.$on('hideAllInfoWindows', function(event) {
+                        //     oInfoWnd.setVisible(false);
+                        // });
 
                         oInfoWnd.attach('click', function() {
                             scope.onClick({model: scope.model});

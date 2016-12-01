@@ -62,7 +62,9 @@
                         // oInfoWnd.setVisible(false);
                     });
 
-                    oMarker.attach('click', function() { scope.onClick({ model: scope.model }); });
+                    oMarker.attach('click', function() {
+                      scope.onClick({ model: scope.model });
+                    });
 
                 });
             }

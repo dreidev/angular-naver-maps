@@ -33,8 +33,15 @@ angular.module('ngNaverMaps').controller('HomeCtrl', ['$scope', '$sce','NgNaverM
         return [venue.lat, venue.lng];
     };
 
+    var activeIndex = -1;
+
     $scope.toggleInfoWindow = function(index) {
+        if(activeIndex != -1 && activeIndex!=index){
+          $scope.$broadcast('closeInfoWindow', activeIndex);
+          activeIndex = -1;
+        }
         $scope.$broadcast('toggleInfoWindow', index);
+        activeIndex = index;
     };
 
 }]);
