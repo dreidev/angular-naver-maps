@@ -101,7 +101,8 @@ It is possible to place an information window on the map using `<ng-naver-map-in
 - **position** Array with latitudinal and longitudinal values
 - **model** Object to pass on click
 - **on-click** function to call on click, passes model as an argument
-To add HTML to the info window, simply transclude your HTML in the directive
+
+To add HTML to the info window, simply transclude your HTML in the directive.
 
 
 ---
