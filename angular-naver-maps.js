@@ -1,71 +1,69 @@
 (function() {
-    angular.module('NaverMaps').directive('ngNaverMapMarker', ['NgNaverMap', function(NgNaverMap) {
-        return {
-            scope: {
-                title: '=?',
-                data: '=?',
-                model: '=?',
-                position: '@?',
-                onClick: '&?'
-            },
-            requires: '^?ngNaverMap',
-            restrict: 'E',
-            link: function(scope, element, attrs, ngNaverMap) {
-                NgNaverMap.getMap().then(function(oMap) {
-                    var Naver = NgNaverMap.Naver;
-
-                    var oSize = new Naver.Size(28, 37);
-                    var oOffset = new Naver.Size(14, 37);
-                    var oIcon = new Naver.Icon('http://static.naver.com/maps2/icons/pin_spot2.png', oSize, oOffset);
-
-                    // var oInfoWnd = new Naver.InfoWindow();
-                    // oInfoWnd.setVisible(false);
-                    // oMap.addOverlay(oInfoWnd);
-
-                    // oInfoWnd.setPosition({
-                    //     top: 20,
-                    //     left: 20
-                    // });
-
-                    var oLabel = new Naver.MarkerLabel();
-                    oLabel.setPosition({
-                        top: 100
+    angular.module('NaverMaps').directive('ngNaverMapInfowindow', [
+        'NgNaverMap',
+        function(NgNaverMap) {
+            return {
+                scope: {
+                    index: '=',
+                    model: '=?',
+                    position: '@?',
+                    onClick: '&?'
+                },
+                requires: '^?ngNaverMap',
+                restrict: 'E',
+                transclude: true,
+                link: function(scope, element, attrs, ngNaverMap, transclude) {
+                    NgNaverMap.getMap().then(function(oMap) {
+                        // Getting Naver Instance
+                        var Naver = NgNaverMap.Naver;
+                        // Creating Info Window instance
+                        var oInfoWnd = new Naver.InfoWindow();
+                        // Configuring Info Window instance
+                        oInfoWnd.setPoint(NgNaverMap.getLatLng(eval(scope.position)));
+                        oInfoWnd.setPosition({top: 40});
+                        // oInfoWnd.autoPosition();
+                        oInfoWnd.setVisible(false);
+                        // Adding Info Window instance to the map
+                        oMap.addOverlay(oInfoWnd);
+                        // Tracking Info Window instance visibility
+                        scope.visible = false;
+                        // Registered Event to toggle the Info Window instance's visibility
+                        scope.$on('toggleInfoWindow', function(event, index) {
+                            if (index === scope.index) {
+                                scope.visible = !scope.visible;
+                                oInfoWnd.setVisible(scope.visible);
+                            }
+                        });
+                        // Registered Event to close the Info Window instance's
+                        scope.$on('closeInfoWindow', function(event, index) {
+                            if (index === scope.index) {
+                                scope.visible = false;
+                                oInfoWnd.setVisible(false);
+                            }
+                        });
+                        // Registered Event to close all Info Window instances
+                        // scope.$on('hideAllInfoWindows', function(event) {
+                        //     oInfoWnd.setVisible(false);
+                        // });
+                        // Registered Event click calls the scope's on-click()
+                        oInfoWnd.attach('click', function() {
+                            scope.onClick({model: scope.model});
+                        });
+                        // Setting the inner content of the Info window instance using transcluded HTML
+                        transclude(scope.$parent, function(clone, scope) {
+                            var htmlWrapper = document.createElement('div');
+                            for (var i = 0; i < clone.length; i++) {
+                                if (clone[i].nodeType === 1) {
+                                    htmlWrapper.appendChild(clone[i]);
+                                }
+                            }
+                            htmlWrapper.style.overflow = 'auto';
+                            htmlWrapper.className = "ng-map-infowindow";
+                            oInfoWnd.setContent(htmlWrapper);
+                        });
                     });
-                    oMap.addOverlay(oLabel);
-                    // oInfoWnd.attach('changeVisible', function(oCustomEvent) {
-                    //     if (oCustomEvent.visible) {
-                    //         oLabel.setVisible(false);
-                    //     }
-                    // });
-
-                    // oInfoWnd.setVisible(false);
-                    // // 마커 클릭하면
-                    // oInfoWnd.setContent('<div style="border-top:1px solid; border-bottom:2px groove black; border-left:1px solid; border-right:2px groove black;margin-bottom:1px;color:black;background-color:white; width:auto; height:auto;">' +
-                    //         '<span style="color: #000000 !important;display: inline-block;font-size: 12px !important;font-weight: bold !important;letter-spacing: -1px !important;white-space: nowrap !important; padding: 2px 5px 2px 2px !important">' +
-                    //         scope.data + '<span></div>');
-                    // oInfoWnd.setPoint(ngNaverMap.getLngLat(scope.position));
-                    // oInfoWnd.setPosition({ right: 15, top: 30 });
-
-                    // oInfoWnd.autoPosition();
-
-                    var oMarker = new Naver.Marker(oIcon, { title: scope.title });
-                    oMarker.setPoint(NgNaverMap.getLatLng(eval(scope.position)));
-                    oMap.addOverlay(oMarker);
-
-                    oMarker.attach('mouseenter', function(oCustomEvent) {
-                        oLabel.setVisible(true, oMarker);
-                        // oInfoWnd.setVisible(true);
-                    });
-
-                    oMarker.attach('mouseleave', function(oCustomEvent) {
-                        oLabel.setVisible(false);
-                        // oInfoWnd.setVisible(false);
-                    });
-
-                    oMarker.attach('click', function() { scope.onClick({ model: scope.model }); });
-
-                });
-            }
-        };
-    }]);
+                }
+            };
+        }
+    ]);
 })();

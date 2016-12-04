@@ -45,7 +45,7 @@ angular.module('ngNaverMaps').controller('HomeCtrl', ['$scope', '$sce','NgNaverM
     // Toggling the info window. Opening an info window closes all others
     $scope.toggleInfoWindow = function(index) {
         // Opening an info window closes all others
-        if(activeIndex!=index){
+        if(activeIndex!==index){
           $scope.$broadcast('closeInfoWindow', activeIndex);
         }
         // Toggling the info window.
