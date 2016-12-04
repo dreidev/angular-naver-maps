@@ -39,7 +39,9 @@
                 }
                 NgNaverMap.getMap().then(function(oMap) {
                   oMap.attach('click', function() {
+                    if(scope.onClick){
                       scope.onClick();
+                    }
                   });
                 });
             }]
