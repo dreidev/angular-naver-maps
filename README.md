@@ -18,17 +18,19 @@ include
 <script src="https://openapi.map.naver.com/openapi/v2/maps.js?clientId=YOURKEY"></script>
 ```
 
-get module
-
-```
-bower install angular-naver-maps
-```
+get module using bower or npm
+- using bower `bower install angular-naver-maps`
+- using npm `npm install angular-naver-maps`
 
 then add it before you app.js
-
-```
-<script src="bower_components/angular-naver-maps/angular-naver-maps.js"></script>
-```
+- if installed using bower
+  ```
+  <script src="bower_components/angular-naver-maps/angular-naver-maps.js"></script>
+  ```
+- if installed using npm
+  ```
+  <script src="node_modules/angular-naver-maps/angular-naver-maps.js"></script>
+  ```
 
 Add the module to your angular app
 
