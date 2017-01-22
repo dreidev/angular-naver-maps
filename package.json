@@ -1,5 +1,5 @@
 {
-    "name": "ngNaverMaps",
+    "name": "angular-naver-maps",
     "version": "0.3.3",
     "scripts": {
         "start": "bower install ; grunt serve",
