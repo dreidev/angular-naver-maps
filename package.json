@@ -1,6 +1,6 @@
 {
     "name": "angular-naver-maps",
-    "version": "0.3.3",
+    "version": "0.3.4",
     "scripts": {
         "start": "bower install ; grunt serve",
         "deploy": "git push origin `git subtree split --prefix dist master`:gh-pages --force"
