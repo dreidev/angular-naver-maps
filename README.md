@@ -2,7 +2,7 @@
 
 A simple angular directive for integrating Naver Maps
 
-[![npm version](https://badge.fury.io/js/angular-naver-maps.svg)](https://badge.fury.io/js/angular-naver-maps) [![Bower version](https://badge.fury.io/bo/angular-naver-maps.svg)](https://badge.fury.io/bo/angular-naver-maps)
+[![Bower version](https://badge.fury.io/bo/angular-naver-maps.svg)](https://badge.fury.io/bo/angular-naver-maps) [![npm version](https://badge.fury.io/js/angular-naver-maps.svg)](https://badge.fury.io/js/angular-naver-maps)
 
 Use `<ng-naver-map>` for embedding a Naver map into your html
 
